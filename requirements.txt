@@ -1,0 +1,4 @@
+tkinter  # Standard library, may need additional installation steps for some systems
+pyautogui
+keyboard
+Pillow  # For handling image assets if required

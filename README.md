@@ -25,8 +25,8 @@ To get started with the Hotkey Script Playground, follow these steps:
 
 1. **Clone the Repository**
    ```sh
-   git clone https://github.com/username/HotkeyScriptPlayground.git
-   cd HotkeyScriptPlayground
+   git clone https://github.com/Wk4021/HotKey-Script.git
+   cd HotKey-Script
    ```
 
 2. **Install Dependencies**
@@ -38,7 +38,7 @@ To get started with the Hotkey Script Playground, follow these steps:
 3. **Project Structure**
    The repository has the following structure:
    ```
-   HotkeyScriptPlayground/
+   HotKey-Script/
    ├── main.py
    ├── ui/
    ├── blocks/
@@ -56,13 +56,13 @@ To run the Hotkey Script Playground:
 
 1. **Navigate to the Parent Directory**
    ```sh
-   cd path/to/HotkeyScriptPlayground
+   cd path/to/HotKey-Script
    ```
 
 2. **Run the Project**
    Use Python to run the main module:
    ```sh
-   python -m HotkeyScriptPlayground.main
+   python -m HotKey-Script.main
    ```
 
 3. **User Interface**
@@ -82,9 +82,11 @@ If you need to add new types of blocks or change the behavior of existing ones, 
 - **Update Backend**: Modify `backend.py` to ensure the new block can be saved, loaded, and executed properly.
 
 ## Troubleshooting
-- **Import Errors**: Make sure you are running the project from the directory **above** `HotkeyScriptPlayground` and use the `-m` flag to run it as a module.
+- **Import Errors**: Make sure you are running the project from the directory **above** `HotKey-Script` and use the `-m` flag to run it as a module.
 - **Missing Packages**: Ensure all required packages are installed using `pip install -r requirements.txt`.
 - **File Not Found**: Ensure all directories contain `__init__.py` files, and that you are using absolute imports within the project.
 
 Feel free to open issues or contribute to the project to improve functionality. Enjoy automating with ease!
 
+## Repository Link
+[HotKey-Script on GitHub](https://github.com/Wk4021/HotKey-Script)
