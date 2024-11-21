@@ -1,4 +1,4 @@
-from file_storage import FileStorage
+from .file_storage import FileStorage
 from blocks.coordinate_block import CoordinateBlock
 from blocks.keyboard_block import KeyboardBlock
 from blocks.mouse_block import MouseBlock

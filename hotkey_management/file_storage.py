@@ -1,6 +1,6 @@
 import os
 import json
-from utilities import ensure_directory_exists
+from HotKeyScript.internal_logic.utilities import ensure_directory_exists
 
 class FileStorage:
     def __init__(self, storage_directory="data_storage"):

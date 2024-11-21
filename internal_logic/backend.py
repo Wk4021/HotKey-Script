@@ -1,11 +1,11 @@
-from HotkeyScriptProject.ui.block_ui import BlockUI
-from HotkeyScriptProject.playground.playground import Playground
-from HotkeyScriptProject.playground.execution_flow import ExecutionFlow
-from HotkeyScriptProject.hotkey_management.hotkey_manager import HotkeyManager
-from HotkeyScriptProject.blocks.mouse_block import MouseBlock
-from HotkeyScriptProject.blocks.keyboard_block import KeyboardBlock
-from HotkeyScriptProject.blocks.wait_block import WaitBlock
-from HotkeyScriptProject.blocks.coordinate_block import CoordinateBlock
+from HotKeyScript.ui.block_ui import BlockUI
+from HotKeyScript.playground.playground import Playground
+from HotKeyScript.playground.execution_flow import ExecutionFlow
+from HotKeyScript.hotkey_management.hotkey_manager import HotkeyManager
+from HotKeyScript.blocks.mouse_block import MouseBlock
+from HotKeyScript.blocks.keyboard_block import KeyboardBlock
+from HotKeyScript.blocks.wait_block import WaitBlock
+from HotKeyScript.blocks.coordinate_block import CoordinateBlock
 import tkinter as tk
 
 class Backend:

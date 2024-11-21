@@ -1,4 +1,4 @@
-from blocks.block_base import BlockBase
+from .block_base import BlockBase
 import pyautogui
 
 class KeyboardBlock(BlockBase):

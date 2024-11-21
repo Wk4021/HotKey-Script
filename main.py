@@ -121,7 +121,7 @@ def launch_project():
     root.mainloop()
 
 if __name__ == "__main__":
-    base_path = os.path.dirname(os.path.abspath(__file__))
+    base_path = "HotKeyScript"
     # Check if the scan has already been completed
     scan_completed = load_scan_status(base_path)
 
