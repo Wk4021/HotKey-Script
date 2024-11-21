@@ -1,10 +1,10 @@
 import os
 import sys
 import tkinter as tk
+import json
 
 # Ensure the project root is in the system path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-print("Current sys.path:", sys.path)
 
 from ui.block_ui import BlockUI
 from playground.playground import Playground
@@ -77,6 +77,28 @@ def create_project_structure(base_path):
             if relative_path not in files and file != "__init__.py":
                 os.remove(file_path)
 
+    # Check that all __init__.py files exist in each folder
+    for folder in folders:
+        folder_path = os.path.join(base_path, folder)
+        init_file_path = os.path.join(folder_path, "__init__.py")
+        if not os.path.exists(init_file_path):
+            print(f"Missing __init__.py in {folder_path}, creating it now...")
+            with open(init_file_path, 'w') as f:
+                f.write("# Init file for " + folder)
+
+def save_scan_status(base_path, status):
+    status_file = os.path.join(base_path, "scan_status.json")
+    with open(status_file, 'w') as f:
+        json.dump({"scan_completed": status}, f)
+
+def load_scan_status(base_path):
+    status_file = os.path.join(base_path, "scan_status.json")
+    if os.path.exists(status_file):
+        with open(status_file, 'r') as f:
+            data = json.load(f)
+            return data.get("scan_completed", False)
+    return False
+
 def launch_project():
     root = tk.Tk()
     root.title("Hotkey Script Playground")
@@ -99,10 +121,15 @@ def launch_project():
     root.mainloop()
 
 if __name__ == "__main__":
-    # Create the project structure if needed (ideally only run once during setup)
-    base_path = "HotKey_Script"
-    create_project_structure(base_path)
-    print(f"Project structure created at '{base_path}'")
-    
-    # Launch the complete project UI
-    launch_project()
+    base_path = "HotKeyScript"
+    # Check if the scan has already been completed
+    scan_completed = load_scan_status(base_path)
+
+    if not scan_completed:
+        # Create the project structure if needed (first time setup)
+        create_project_structure(base_path)
+        save_scan_status(base_path, True)
+        print(f"Project structure created at '{base_path}'. Please run the script again to launch the UI.")
+    else:
+        # Launch the complete project UI
+        launch_project()
