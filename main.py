@@ -5,11 +5,11 @@ import tkinter as tk
 # Ensure the project root is in the system path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from HotkeyScriptProject.ui.block_ui import BlockUI
-from HotkeyScriptProject.playground.playground import Playground
-from HotkeyScriptProject.internal_logic.backend import Backend
-from HotkeyScriptProject.hotkey_management.hotkey_manager import HotkeyManager
-from HotkeyScriptProject.internal_logic.hotkey_runner import HotkeyRunner
+from ui.block_ui import BlockUI
+from playground.playground import Playground
+from internal_logic.backend import Backend
+from hotkey_management.hotkey_manager import HotkeyManager
+from internal_logic.hotkey_runner import HotkeyRunner
 
 def create_project_structure(base_path):
     # Define the folder structure
@@ -99,7 +99,7 @@ def launch_project():
 
 if __name__ == "__main__":
     # Create the project structure if needed (ideally only run once during setup)
-    base_path = "HotkeyScriptProject"
+    base_path = "HotKey_Script"
     create_project_structure(base_path)
     print(f"Project structure created at '{base_path}'")
     

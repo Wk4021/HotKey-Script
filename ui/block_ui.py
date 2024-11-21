@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, Canvas
-from HotkeyScriptProject.blocks.block_base import BlockBase
-from HotkeyScriptProject.blocks.coordinate_block import CoordinateBlock
-from HotkeyScriptProject.blocks.keyboard_block import KeyboardBlock
-from HotkeyScriptProject.blocks.mouse_block import MouseBlock
-from HotkeyScriptProject.blocks.wait_block import WaitBlock
+from blocks.block_base import BlockBase
+from blocks.coordinate_block import CoordinateBlock
+from blocks.keyboard_block import KeyboardBlock
+from blocks.mouse_block import MouseBlock
+from blocks.wait_block import WaitBlock
 
 class BlockUI:
     def __init__(self, root):
