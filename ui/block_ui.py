@@ -9,8 +9,8 @@ from blocks.wait_block import WaitBlock
 class BlockUI:
     def __init__(self, root):
         self.root = root
-        self.setup_ui()
-        self.blocks = []  # List to keep track of all blocks added to the playground
+        self.blocks = []  # Initialize the blocks list to keep track of all blocks added to the playground
+        self.setup_ui()   # Now call setup_ui after initializing self.blocks
 
     def setup_ui(self):
         # Create a canvas for the playground area
