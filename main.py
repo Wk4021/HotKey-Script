@@ -4,6 +4,7 @@ import tkinter as tk
 
 # Ensure the project root is in the system path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+print("Current sys.path:", sys.path)
 
 from ui.block_ui import BlockUI
 from playground.playground import Playground
