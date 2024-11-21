@@ -54,6 +54,8 @@ def launch_project():
     root = tk.Tk()
     root.title("Hotkey Script Playground")
     root.geometry("1000x700")
+    root.columnconfigure(0, weight=1)  # Allow root window to resize horizontally
+    root.rowconfigure(0, weight=1)  # Allow root window to resize vertically
 
     # Initialize Backend to orchestrate everything
     backend = Backend(root)

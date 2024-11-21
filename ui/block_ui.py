@@ -10,7 +10,11 @@ class BlockUI:
     def __init__(self, root):
         self.root = root
         self.blocks = []  # Initialize the blocks list to keep track of all blocks added to the playground
-        self.setup_ui()   # Now call setup_ui after initializing self.blocks
+        self.block_positions = {}  # Keep track of original positions of blocks for resizing calculations
+        self.setup_ui()
+        
+        # Bind the window resize event to handle resizing
+        self.root.bind("<Configure>", self.on_window_resize)
 
     def setup_ui(self):
         # Create a canvas for the playground area
@@ -32,6 +36,9 @@ class BlockUI:
         block = self.canvas.create_rectangle(x, y, x + 120, y + 50, fill="blue", tags=block_name)
         text = self.canvas.create_text(x + 60, y + 25, text=block_name, fill="white", tags=block_name)
         
+        # Store the original position for resizing calculations
+        self.block_positions[block] = (x, y)
+
         # Bind mouse events for dragging
         self.canvas.tag_bind(block_name, "<ButtonPress-1>", self.on_block_press)
         self.canvas.tag_bind(block_name, "<B1-Motion>", self.on_block_drag)
@@ -56,6 +63,29 @@ class BlockUI:
         items = self.canvas.find_withtag(tk.CURRENT)
         for item in items:
             self.canvas.move(item, dx, dy)
+
+    def on_window_resize(self, event):
+        # Calculate scaling factors for resizing
+        width_scale = event.width / self.canvas.winfo_width()
+        height_scale = event.height / self.canvas.winfo_height()
+
+        # Update the canvas size
+        self.canvas.config(width=event.width, height=event.height)
+
+        # Rescale and reposition each block
+        for block_id, (original_x, original_y) in self.block_positions.items():
+            new_x = original_x * width_scale
+            new_y = original_y * height_scale
+            dx = new_x - original_x
+            dy = new_y - original_y
+
+            # Move the blocks proportionally
+            self.canvas.move(block_id, dx, dy)
+
+        # Update the canvas size in block_positions
+        for block_id in self.block_positions:
+            coords = self.canvas.coords(block_id)
+            self.block_positions[block_id] = (coords[0], coords[1])
 
 if __name__ == "__main__":
     root = tk.Tk()
